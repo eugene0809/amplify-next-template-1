@@ -14,7 +14,7 @@ Amplify.configure(outputs);
 
 
 const getUrlResult = await getUrl({
-  path: 'public/album/2024/1.jpg',
+  path: 'public/READNE.md',
   // Alternatively, path: ({identityId}) => `protected/${identityId}/album/2024/1.jpg`
   options: {
     validateObjectExistence?: false,  // Check if object exists before creating a URL
