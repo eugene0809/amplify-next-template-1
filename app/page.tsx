@@ -48,6 +48,9 @@ export default function App() {
 
   return (
     <main>
+      <a href="{signedURL.url.toString()}" target="_blank" rel="noreferrer">
+        {fileName} 
+      </a>
       <h1>My todos</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
