@@ -11,6 +11,20 @@ import { getUrl } from 'aws-amplify/storage';
 
 Amplify.configure(outputs);
 
+
+
+const getUrlResult = await getUrl({
+  path: 'public/album/2024/1.jpg',
+  // Alternatively, path: ({identityId}) => `protected/${identityId}/album/2024/1.jpg`
+  options: {
+    validateObjectExistence?: false,  // Check if object exists before creating a URL
+    expiresIn?: 20 // validity of the URL, in seconds. defaults to 900 (15 minutes) and maxes at 3600 (1 hour)
+    useAccelerateEndpoint?: true; // Whether to use accelerate endpoint
+  },
+});
+console.log('signed URL: ', getUrlResult.url);
+console.log('URL expires at: ', getUrlResult.expiresAt);
+
 const client = generateClient<Schema>();
 
 export default function App() {
